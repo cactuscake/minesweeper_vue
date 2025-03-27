@@ -1,7 +1,5 @@
 <template>
-  <div id="app">  <!-- Важно совпадение с mount('#app') -->
     <router-view/>
-  </div>
 </template>
 
 <style>

@@ -104,4 +104,8 @@
     background-color: #4CAF50;
     color: white;
   }
+
+  button:focus {
+    background-color: gray;
+  }
   </style>

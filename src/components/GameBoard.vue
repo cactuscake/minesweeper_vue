@@ -1,7 +1,6 @@
 <template>
     <div class="game-container">
       <div class="game-header">
-        <div class="mines-counter">{{ minesLeft }}</div>
         <button class="restart-btn" @click="restartGame">↻</button>
         <Timer :isRunning="isGameRunning" @time-update="updateTime" />
         <router-link to="/">Настройки</router-link>
@@ -39,7 +38,9 @@
           </div>
         </div>
       </div>
-      
+
+      <div class="mines-counter">{{ minesLeft }}</div>
+
       <div v-if="gameOver" class="game-over">
         <h2>{{ gameWon ? 'Победа!' : 'Поражение!' }}</h2>
         <button @click="restartGame">Играть снова</button>
@@ -150,7 +151,7 @@
       return
     }
     
-    // Рекурсивное открытие пустых клеток
+    // Открытие пустых клеток
     const reveal = (r, c) => {
       if (r < 0 || r >= store.boardSize.rows || c < 0 || c >= store.boardSize.cols || 
           board.value[r][c].isRevealed || board.value[r][c].flag === 'flag') {
@@ -367,5 +368,6 @@
     font-size: 20px;
     padding: 5px 10px;
     cursor: pointer;
+    margin-right: 50px;
   }
   </style>

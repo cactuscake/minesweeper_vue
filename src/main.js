@@ -3,16 +3,30 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-// Импорт основных стилей (если есть)
-//import './assets/main.css'
-
 const app = createApp(App)
 
-// Подключение Pinia (для управления состоянием)
+// Отладочная информация
+console.log('[DEBUG] Vue app initializing...')
+console.log('[DEBUG] Vue version:', createApp.version)
+
+// Проверка элемента перед монтированием
+const mountElement = document.getElementById('app')
+if (!mountElement) {
+  console.error('[ERROR] Element #app not found!')
+} else {
+  console.log('[DEBUG] Mount element found:', mountElement)
+}
+
+// Инициализация Pinia
 app.use(createPinia())
 
-// Подключение Vue Router
+// Инициализация роутера
 app.use(router)
 
-// Монтируем приложение
-app.mount('#app')
+// Монтирование с обработкой ошибок
+try {
+  app.mount('#app')
+  console.log('[DEBUG] App successfully mounted')
+} catch (error) {
+  console.error('[ERROR] Mounting failed:', error)
+}

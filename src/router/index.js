@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import GameSettings from '@/components/GameSettings.vue'
 import Leaderboard from '@/components/GameLeaderboard.vue'
 import GameBoard from '@/components/GameBoard.vue'

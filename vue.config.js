@@ -1,3 +1,7 @@
 module.exports = {
-  publicPath: '/minesweeper_vue/'
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/minesweeper_vue/'
+    : '/',
+  outputDir: 'dist',
+  assetsDir: 'static'
 }
